@@ -2,3 +2,4 @@
 .idea/
 stormdemo.iml
 /target/
+/logs/

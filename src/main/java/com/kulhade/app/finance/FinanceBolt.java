@@ -14,10 +14,10 @@ public class FinanceBolt extends BaseBasicBolt {
 
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
         String symbol = tuple.getStringByField("company");
-        String timestamp = tuple.getString(1); //Can be done like tuple.getStringByField("timestamp")
+        String timestamp = tuple.getStringByField("timestamp"); //Can be done like tuple.getStringByField("timestamp")
 
-        Double price = (Double)tuple.getValueByField("price");
-        Double prevClose = tuple.getDoubleByField("prev_close");
+        Double price = Double.valueOf(tuple.getStringByField("price"));
+        Double prevClose = Double.valueOf(tuple.getStringByField("prev_close"));
 
         Boolean gain=true;
         if(prevClose>=price){

@@ -32,7 +32,7 @@ public class FinanceSpout extends BaseRichSpout {
             BigDecimal prevClose = stockQuote.getPreviousClose();
             Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
 
-            collector.emit(new Values(stockQuote.getSymbol(),price,prevClose,timeStamp));
+            collector.emit(new Values(stockQuote.getSymbol(),timeStamp.toString(),price.toString(),prevClose.toString()));
 
         }catch(Exception e){
             e.printStackTrace();
